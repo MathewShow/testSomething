@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*修改提示框*/
+        #mytitle {
+            position: absolute;
+            color: #ffffff;
+            max-width: 160px;
+            font-size: 14px;
+            padding: 4px;
+            background: rgba(40, 40, 40, 0.8);
+            border: solid 1px #e9f7f6;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+    <span class="mytooltip" title="个性样式" >
+        格式样式:
+    </span>
+</body>
+<script type="text/javascript">
+    $(function () {
+        var x = 10;
+        var y = 20;
+        var newtitle = '';
+        $('span.mytooltip').mouseover(function (e) {
+            newtitle = this.title;
+            this.title = '';
+            $('body').append('<div id="mytitle" >' + newtitle + '</div>');
+            $('#mytitle').css({
+                'left': (e.pageX + x + 'px'),
+                'top': (e.pageY + y - 80 + 'px')
+            }).show();
+        }).mouseout(function () {
+            this.title = newtitle;
+            $('#mytitle').remove();
+        }).mousemove(function (e) {
+            $('#mytitle').css({
+                'left': (e.pageX + x +10 + 'px'),
+                'top': (e.pageY + y - 60 + 'px')
+            }).show();
+        })
+    });
+
+</script>
+
+
+</html>

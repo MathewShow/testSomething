@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出框设计</title>
+    <link rel="stylesheet" href="dialogsCss.css">
+    <style>
+
+        * { margin: 0; padding: 0 }
+
+        html { overflow-y: scroll }
+
+        body, h1, h2, h3, p, div, dl, dt, dd, ul, ol, li, table, th, td, form, button, input, textarea, legend, hr { padding: 0; margin: 0 }
+
+        body { padding: 0; margin: 0;  color: #333; font: 12px/18px "微软雅黑", arial; height: 100% }
+
+        button, input, select, textarea { font-size: 100% }
+
+        textarea { font: 14px/20px "微软雅黑" }
+
+        button { border: 0 }
+
+        li { list-style: none }
+
+        img { border: 0; }
+
+        a { color: #06c; text-decoration: none; cursor: pointer; outline: none; hide-focus:expression(this.hideFocus = true);}
+
+        a:hover { color: #06c; text-decoration: underline }
+
+        .left{ float:left;}
+
+        .right{ float:right;}
+
+        .clear:after,ul:after{content:"";display:block;visibility:hidden;height:0;clear:both;}
+
+        .clear,.area,.con:after{zoom:1}
+
+    </style>
+</head>
+<body>
+<div class="float-menu">
+
+    <div class="plus"><div class="cross"></div></div>
+
+    <div class="menu-list">
+
+        <a href="#index" class="link-home">首页</a>
+
+        <a href="#my" class="link-my">我的</a>
+
+        <a href="#cart" class="link-cart">购物<span id="float-cart">6</span></a>
+
+    </div>
+
+</div>
+<script>
+    if (document.querySelector(".float-menu")){
+        var plus = document.querySelector(".plus");
+        var floatMenu = document.querySelector(".float-menu");
+        plus.addEventListener("click",function () {
+            floatMenu.className.indexOf("open")>-1?floatMenu.className="float-menu":
+                floatMenu.className="float-menu open";
+        },false);
+    }
+
+</script>
+</body>
+</html>
